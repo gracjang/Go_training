@@ -12,7 +12,7 @@ type Puzzle struct {
 	JsonStr string `json:"string"`
 }
 
-func main() {
+func init() {
 	content, err := os.ReadFile("puzzle.json") // replace with your JSON file's path
 	if err != nil {
 		log.Fatal(err)
