@@ -13,8 +13,8 @@ func main(){
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	partOne(input)
+	
 }
 
 func partOne(input []byte) {
