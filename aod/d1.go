@@ -8,19 +8,19 @@ import (
 	"strings"
 )
 
-func main(){
+func main() {
 	input, err := os.ReadFile("input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
 	partOne(input)
-	
+
 }
 
 func partOne(input []byte) {
 	lines := strings.Split(string(input), "\n")
 	elfCalories := []int{}
-	caloriesCounter := 0	
+	caloriesCounter := 0
 
 	for _, line := range lines {
 		if line == "" {
@@ -34,11 +34,21 @@ func partOne(input []byte) {
 	}
 
 	max := max(elfCalories)
+	counter := partTwo(elfCalories)
+
 	log.Println("Day1P1:", max)
+	log.Println("Day1P2:", counter)
 }
 
-func partTwo(input []byte) {
-	
+func partTwo(input []int) int {
+	sort.Ints(input)
+	topThree := input[len(input)-3:]
+	var counter int
+	for _, num := range topThree {
+		counter += num
+	}
+
+	return counter
 }
 
 func max(numbers []int) int {
