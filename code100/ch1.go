@@ -13,7 +13,7 @@ type Puzzle struct {
 }
 
 func init() {
-	content, err := os.ReadFile("puzzle.json") // replace with your JSON file's path
+	content, err := os.ReadFile("puzzle.json")
 	if err != nil {
 		log.Fatal(err)
 	}
