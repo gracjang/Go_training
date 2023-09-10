@@ -1,4 +1,4 @@
-package main
+package code100
 
 import (
 	"fmt"
@@ -12,8 +12,8 @@ type Puzzle struct {
 	JsonStr string `json:"string"`
 }
 
-func init() {
-	content, err := os.ReadFile("puzzle.json")
+func SolveCh1(path string) {
+	content, err := os.ReadFile(path)
 	if err != nil {
 		log.Fatal(err)
 	}

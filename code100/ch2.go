@@ -1,4 +1,4 @@
-package main
+package code100
 
 import (
 	"encoding/json"
@@ -12,9 +12,9 @@ type Puzzle2 struct {
 	JsonStr []string `json:"string"`
 }
 
-func init() {
+func SolveCh2(path string) {
 
-	content, err := os.ReadFile("puzzle2.json")
+	content, err := os.ReadFile(path) // replace with your JSON file's path
 	if err != nil {
 		log.Fatal(err)
 	}

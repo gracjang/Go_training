@@ -1,4 +1,4 @@
-package main
+package code100
 
 import (
 	"encoding/json"
@@ -19,8 +19,8 @@ type Puzzle3 struct {
 	Top   uuid.UUID `json:"top"`
 }
 
-func main()  {
-	content, err := os.ReadFile("puzzle3.json")
+func SolveCh3(path string) {
+	content, err := os.ReadFile(path)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -33,7 +33,7 @@ func main()  {
 	puzzle.Traverse()
 }
 
-func (p * Puzzle3) Traverse() {
+func (p *Puzzle3) Traverse() {
 	nodesMap := make(map[uuid.UUID]*Node)
 	for i := range p.Nodes {
 		nodesMap[p.Nodes[i].ID] = &p.Nodes[i]

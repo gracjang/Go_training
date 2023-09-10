@@ -1,4 +1,4 @@
-package main
+package aod
 
 import (
 	"log"
@@ -6,10 +6,10 @@ import (
 	"strings"
 )
 
-func main() {
+func Solve_d2() {
 
 	score := 0
-	content, err := os.ReadFile("input2.txt")
+	content, err := os.ReadFile("aod/input2.txt")
 	if err != nil {
 		log.Fatal(err)
 	}

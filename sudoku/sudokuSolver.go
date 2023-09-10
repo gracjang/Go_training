@@ -1,11 +1,11 @@
-package main
+package sudoku
 
 import "fmt"
 
-type SudokuGrid [9][9]int
+type sudokuGrid [9][9]int
 
-func main() {
-	grid := SudokuGrid{
+func SolveSudoku() {
+	grid := sudokuGrid{
 		{0, 0, 0, 0, 0, 0, 0, 0, 0},
 		{0, 0, 0, 0, 0, 0, 0, 0, 0},
 		{0, 9, 8, 0, 0, 0, 0, 6, 0},
@@ -23,7 +23,7 @@ func main() {
 	}
 }
 
-func findUnassigned(grid *SudokuGrid) (int, int) {
+func findUnassigned(grid *sudokuGrid) (int, int) {
 	for i := 0; i < 9; i++ {
 		for j := 0; j < 9; j++ {
 			if grid[i][j] == 0 {
@@ -34,7 +34,7 @@ func findUnassigned(grid *SudokuGrid) (int, int) {
 	return -1, -1
 }
 
-func sudokuSolver(grid *SudokuGrid) bool {
+func sudokuSolver(grid *sudokuGrid) bool {
 	i, j := findUnassigned(grid)
 	if i == -1 && j == -1 {
 		return true
@@ -53,7 +53,7 @@ func sudokuSolver(grid *SudokuGrid) bool {
 	return false
 }
 
-func boxCheck(grid *SudokuGrid, row int, col int, value int) bool {
+func boxCheck(grid *sudokuGrid, row int, col int, value int) bool {
 	r := (row/3)*3 + 1
 	c := (col/3)*3 + 1
 	ranges := [3]int{-1, 0, 1}
@@ -68,7 +68,7 @@ func boxCheck(grid *SudokuGrid, row int, col int, value int) bool {
 	return true
 }
 
-func colCheck(grid *SudokuGrid, col int, value int) bool {
+func colCheck(grid *sudokuGrid, col int, value int) bool {
 	for i := 0; i < 9; i++ {
 		if value == grid[i][col] {
 			return false
@@ -77,7 +77,7 @@ func colCheck(grid *SudokuGrid, col int, value int) bool {
 	return true
 }
 
-func rowCheck(grid *SudokuGrid, row int, value int) bool {
+func rowCheck(grid *sudokuGrid, row int, value int) bool {
 	for j := 0; j < 9; j++ {
 		if value == grid[row][j] {
 			return false
@@ -86,7 +86,7 @@ func rowCheck(grid *SudokuGrid, row int, value int) bool {
 	return true
 }
 
-func printSudoku(grid *SudokuGrid) {
+func printSudoku(grid *sudokuGrid) {
 	for _, row := range grid {
 		fmt.Println(row)
 	}
